@@ -1,0 +1,78 @@
+body {
+  display: flex;
+  flex: 1;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.button {
+  border: 1px solid;
+  border-color: white;
+  background-color: transparent;
+  color: white;
+  height: 6.5rem;
+  width: auto;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 550;
+  transition: all 0.5s;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+
+.clickable:hover {
+  cursor: pointer;
+}
+
+p {
+  display: block;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
+.link{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--grey-carls);
+  font-weight: 700;
+  width: auto;
+}
+
+.link::after{
+  content: "";
+  width: auto;
+  height: 8px;
+  background-color: var(--grey-carls);
+}
+
+.link:hover{
+  cursor: pointer;
+}
+
+:root {
+  --red-carls: #cc2131;
+  --yellow-carls: #f6d43c;
+  --grey-carls: #222222;
+  --blue-dessert: #5b8fa5;
+}
