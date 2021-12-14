@@ -7,16 +7,28 @@ body {
     sans-serif;
   height: 100vh;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
 #root {
   display: flex;
   flex-direction: column;
   flex: 1;
+}
+
+.button-black {
+  border: 1px solid;
+  border-color: black;
+  background-color: transparent;
+  color: black;
+  height: 6.5rem;
+  width: 11rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 550;
+  transition: all 0.5s;
+}
+
+.button-black:hover {
+  background-color: black;
+  color: white;
 }
 
 .button {
@@ -38,8 +50,18 @@ code {
   color: black;
 }
 
+::placeholder {
+  color: black;
+}
+
 .clickable:hover {
   cursor: pointer;
+}
+
+a:-webkit-any-link {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 p {
@@ -50,7 +72,7 @@ p {
   margin-inline-end: 0;
 }
 
-.link{
+.link {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -59,14 +81,14 @@ p {
   width: auto;
 }
 
-.link::after{
+.link::after {
   content: "";
   width: auto;
   height: 8px;
   background-color: var(--grey-carls);
 }
 
-.link:hover{
+.link:hover {
   cursor: pointer;
 }
 
@@ -75,4 +97,10 @@ p {
   --yellow-carls: #f6d43c;
   --grey-carls: #222222;
   --blue-dessert: #5b8fa5;
+}
+
+.String-error {
+  height: 1.5rem;
+  color: red;
+  font-weight: 770px;
 }

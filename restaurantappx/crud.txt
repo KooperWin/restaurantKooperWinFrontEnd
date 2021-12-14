@@ -1,0 +1,5 @@
+CRUD FINAL
+Hacer una vista por separado que rendere los detalles de algun elemento de una lista.
+esta vista tiene que tener su propio path en el router de su app.
+Tiene que poder editar consultar y eliminar el elemento.
+todas las peticiones tienen que mostrar un loader, y funcionar.

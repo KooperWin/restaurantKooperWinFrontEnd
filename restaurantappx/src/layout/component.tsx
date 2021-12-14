@@ -1,29 +1,76 @@
 import { FC } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import images from "../assets";
+import { loadingSelector } from "../redux/ui/selectors";
+import { loginRequested, logoutSuccess } from "../redux/user/actions";
+
+import Lottie, { Options } from "react-lottie";
+import { userTokenSelector } from "../redux/user/selectors";
 import "./styles.css";
+import burger from "../assets/lottie/burger.json";
+import { Link } from "react-router-dom";
 
 const Layout: FC = ({ children }) => {
-  const {
-    BurgerLogo,
-    FacebookLogo,
-    InstagramLogo,
-    YoutubeLogo,
-  } = images; /* Burger no se necesita porque se importa directamente de css*/
+  const { BurgerLogo, FacebookLogo, InstagramLogo, YoutubeLogo } =
+    images; /* Burger no se necesita porque se importa directamente de css*/
+
+  const loading = useSelector(loadingSelector);
+  const tokenUser = useSelector(userTokenSelector);
+
+  const defaultOptions: Options = {
+    loop: true,
+    autoplay: true,
+    animationData: burger,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
+  function deleteLocalStorage() {
+    localStorage.removeItem("persist:root");
+    sessionStorage.removeItem("persist:root");
+    window.location.reload();
+  }
 
   return (
     <div className="restaurant-container">
+      {loading ? (
+        <div className="loader-container">
+          <Lottie
+            speed={2.2}
+            options={defaultOptions}
+            height={400}
+            width={400}
+          />
+          <p>Loading...</p>
+        </div>
+      ) : null}
       <header className="restaurant-header">
-        <BurgerLogo className="restaurant-logo" />
+        <Link to="/">
+          <BurgerLogo className="restaurant-logo" />
+        </Link>
         <ul className="restaurant-firstMenu">
-          <li className="clickable">Menu</li>
-          <li className="clickable">Locations</li>
+          <Link to="/products">
+            <li className="clickable">Menu</li>
+          </Link>
+          <Link to="/locations">
+            <li className="clickable">Locations</li>
+          </Link>
           <li className="clickable">ClubHouse</li>
         </ul>
         <ul className="restaurant-secondMenu">
           <li className="clickable">The front yard</li>
-          <li className="clickable">Our story</li>
           <li className="clickable">Own a BYB</li>
           <li className="clickable">Contact</li>
+          {!tokenUser ? (
+            <li className="clickable">
+              <Link to="/Login">Login in/Sign in</Link>
+            </li>
+          ) : (
+            <li className="clickable" onClick={deleteLocalStorage}>
+              <Link to="/">Logout</Link>
+            </li>
+          )}
         </ul>
       </header>
       <div className="restaurant-content">{children}</div>

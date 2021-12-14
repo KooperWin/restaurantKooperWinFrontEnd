@@ -7,8 +7,10 @@ import YoutubeLogo from "./png/youtube.png";
 import Burguer from "./png/Burguer2.jpg";
 import HamburgerTransparent from "./png/HamburgerTransparent.png";
 import IceCream from "./png/NIEVEBURGERKING.png";
+import BackGround from "./png/bg.jpg"
 
 const images = {
+  BackGround,
   BurgerLogo,
   FacebookLogo,
   InstagramLogo,
